@@ -1,12 +1,24 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
+# Database configuration
+# Format: mysql+pymysql://username:password@host:port/database_name
 SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:root@localhost:3306/expense_tracker"
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+
+# Create engine with connection pooling
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL,
+    pool_pre_ping=True,  # Verify connections before using
+    pool_recycle=3600,   # Recycle connections after 1 hour
+    echo=False           # Set to True for SQL query logging
+)
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
+
 def get_db():
+    """Dependency function to get database session."""
     db = SessionLocal()
     try:
         yield db
