@@ -22,7 +22,8 @@ class Category(Base):
     name = Column(String(100), unique=True, nullable=False, index=True)
     
     # Relationships
-    expenses = relationship("Expense", back_populates="category", cascade="all, delete-orphan")
+    # No cascade - RESTRICT constraint prevents deletion if expenses exist
+    expenses = relationship("Expense", back_populates="category")
 
 
 class Expense(Base):
