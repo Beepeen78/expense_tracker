@@ -296,7 +296,6 @@ def create_expense(
 def read_expenses(
     skip: int = 0, 
     limit: int = 100,
-    user_id: Optional[int] = None,
     category_id: Optional[int] = None,
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user)

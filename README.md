@@ -1,246 +1,123 @@
-# Expense Tracker API
+# Bonjour! 👋
 
-A RESTful API for tracking personal expenses built with FastAPI, SQLAlchemy, and MySQL. This application provides user authentication, expense management, and category organization.
+I'm **Bipin Pandey**
 
-## Features
+---
 
-- **User Authentication**: Secure JWT-based authentication with password hashing
-- **User Management**: Create, read, update, and delete user accounts
-- **Expense Management**: Full CRUD operations for expenses
-- **Category Management**: Organize expenses by categories
-- **Authorization**: Users can only access their own expenses
-- **Data Validation**: Comprehensive input validation using Pydantic
-- **API Documentation**: Automatic OpenAPI/Swagger documentation
+## About Me 😊
 
-## Tech Stack
+🎓 **Post Graduate Diploma in Big Data Analytics** from Lambton College, Mississauga, Canada  
+💻 **Bachelor of Computer Science**  
+🤖 Passionate about Data Engineering, Machine Learning, and building scalable backend systems  
+🌍 Love connecting with new people, learning their stories, and collaborating on exciting projects  
+📚 Believer in "Knowledge is power. Knowledge shared is power multiplied."  
+🧑‍💻 Always eager to solve complex problems and build production-ready solutions  
+🤝 Open to discussing new opportunities, projects, or technical challenges  
 
-- **FastAPI**: Modern, fast web framework for building APIs
-- **SQLAlchemy**: SQL toolkit and ORM
-- **MySQL**: Relational database
-- **Pydantic**: Data validation using Python type annotations
-- **JWT**: JSON Web Tokens for authentication
-- **Bcrypt**: Password hashing
-- **Uvicorn**: ASGI server
+---
 
-## Prerequisites
+## What I'm Up To These Days 🚀
 
-- Python 3.8+
-- MySQL 5.7+ or MySQL 8.0+
-- pip (Python package manager)
+🔍 **JOB HUNT JOB HUNT** 🔍  
+💼 Seeking opportunities in Data Engineering, Machine Learning Engineering, or Backend Development  
+🤖 Building end-to-end ML pipelines and data processing systems  
+🧠 Always learning—currently exploring advanced MLOps practices and cloud-native architectures  
+🌐 Exploring the latest in real-time data streaming and distributed systems  
+📊 Working on projects that showcase my skills in data engineering and ML  
+👨‍💻 Contributing to open-source projects and sharing knowledge  
 
-## Installation
+---
 
-1. **Clone the repository** (or navigate to the project directory):
-   ```bash
-   cd expense_tracker
-   ```
+## Featured Projects 🚀
 
-2. **Create a virtual environment**:
-   ```bash
-   python -m venv venv
-   ```
+### 💰 [Expense Tracker API](https://github.com/Beepeen78/expense_tracker)
+Production-ready RESTful API for personal expense management with JWT authentication, user authorization, and automated database migrations.
 
-3. **Activate the virtual environment**:
-   - On Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
+**Tech Stack:** FastAPI | SQLAlchemy | MySQL | JWT | Alembic | Pydantic
 
-4. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+---
 
-5. **Set up MySQL database**:
-   - Create a MySQL database named `expense_tracker`:
-     ```sql
-     CREATE DATABASE expense_tracker;
-     ```
-   - Update the database connection in `database.py` if needed:
-     ```python
-     SQLALCHEMY_DATABASE_URL = "mysql+pymysql://username:password@localhost:3306/expense_tracker"
-     ```
+### 🛒 [Multi-Service E-Commerce Platform](https://github.com/Beepeen78/Multi-service-ecommerce-platform)
+Scalable microservices-based e-commerce platform with distributed architecture, service discovery, and real-time processing.
 
-6. **Run the application**:
-   ```bash
-   uvicorn main:app --reload
-   ```
+**Tech Stack:** Microservices | Docker | Kubernetes | API Gateway | Message Queues
 
-   The API will be available at `http://localhost:8000`
+---
 
-## API Documentation
+### 🚨 [Card Fraud Detection Pipeline](https://github.com/Beepeen78/card-fraud-detection-pipeline)
+End-to-end ML pipeline for real-time credit card fraud detection with automated model training, evaluation, and deployment.
 
-Once the server is running, you can access:
+**Tech Stack:** Python | Scikit-learn | XGBoost | Apache Kafka | MLflow | Docker
 
-- **Swagger UI**: http://localhost:8000/docs
-- **ReDoc**: http://localhost:8000/redoc
+---
 
-## API Endpoints
+### 📰 [News Summarizing Project](https://github.com/Beepeen78/news-summarizing-project)
+NLP application for automatic news article summarization using transformer models with extractive and abstractive capabilities.
 
-### Authentication
+**Tech Stack:** Python | Transformers | BERT | GPT | NLTK | FastAPI
 
-- `POST /login/` - Login and get access token
-  - Body: `username` and `password` (form data)
-  - Returns: `access_token` and `token_type`
+---
 
-### Users
+### 📸 [Pro Headshot Generator](https://github.com/Beepeen78/pro-headshot)
+AI-powered application for generating professional headshots using advanced image generation and computer vision techniques.
 
-- `POST /users/` - Create a new user
-- `GET /users/me` - Get current user information (requires authentication)
-- `GET /users/` - Get list of users
-- `GET /users/{user_id}` - Get user by ID
-- `PUT /users/{user_id}` - Update user (users can only update themselves)
-- `DELETE /users/{user_id}` - Delete user (users can only delete themselves)
+**Tech Stack:** Python | TensorFlow | PyTorch | OpenCV | GANs | Image Processing
 
-### Categories
+---
 
-- `POST /categories/` - Create a new category
-- `GET /categories/` - Get list of categories
-- `GET /categories/{category_id}` - Get category by ID
-- `PUT /categories/{category_id}` - Update category
-- `DELETE /categories/{category_id}` - Delete category (only if not used by expenses)
+## Tech Stack 🛠️
 
-### Expenses
+### Languages:
+Python | SQL | JavaScript
 
-- `POST /expenses/` - Create a new expense (requires authentication)
-- `GET /expenses/` - Get list of expenses (users see only their own)
-- `GET /expenses/{expense_id}` - Get expense by ID (users can only access their own)
-- `PUT /expenses/{expense_id}` - Update expense (users can only update their own)
-- `DELETE /expenses/{expense_id}` - Delete expense (users can only delete their own)
+### Backend Development:
+FastAPI | Flask | RESTful APIs | Microservices
 
-## Usage Examples
+### Data Science & ML:
+Pandas | NumPy | Scikit-learn | TensorFlow | PyTorch | XGBoost
 
-### 1. Create a User
+### Machine Learning & AI:
+NLP | BERT | Transformers | GANs | Computer Vision | MLflow
 
-```bash
-curl -X POST "http://localhost:8000/users/" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "username": "johndoe",
-    "email": "john@example.com",
-    "password": "securepassword123"
-  }'
-```
+### Database:
+MySQL | PostgreSQL | MongoDB | SQLAlchemy
 
-### 2. Login
+### DevOps & Infrastructure:
+Docker | Kubernetes | Git | Alembic | CI/CD
 
-```bash
-curl -X POST "http://localhost:8000/login/" \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=johndoe&password=securepassword123"
-```
+### Authentication & Security:
+JWT | OAuth2 | bcrypt | User Authorization
 
-Response:
-```json
-{
-  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "token_type": "bearer"
-}
-```
+---
 
-### 3. Create a Category
+## GitHub Statistics 📊
 
-```bash
-curl -X POST "http://localhost:8000/categories/" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "Food"
-  }'
-```
+<div align="center">
 
-### 4. Create an Expense (with authentication)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Beepeen78&show_icons=true&theme=default&hide_border=true&bg_color=ffffff&title_color=0366d6&icon_color=0366d6)
 
-```bash
-curl -X POST "http://localhost:8000/expenses/" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
-  -d '{
-    "user_id": 1,
-    "category_id": 1,
-    "amount": 25.50,
-    "expense_date": "2024-01-15",
-    "description": "Lunch at restaurant",
-    "location": "Downtown"
-  }'
-```
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Beepeen78&layout=compact&theme=default&hide_border=true&bg_color=ffffff&title_color=0366d6)
 
-### 5. Get Expenses (with authentication)
+</div>
 
-```bash
-curl -X GET "http://localhost:8000/expenses/" \
-  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
-```
+---
 
-## Database Schema
+## Contact 📫
 
-### Users Table
-- `user_id` (Primary Key)
-- `username` (Unique)
-- `email` (Unique)
-- `password_hash`
+Open to discussing new projects, collaboration opportunities, or technical challenges!
 
-### Categories Table
-- `category_id` (Primary Key)
-- `name` (Unique)
+**Email:** [bipinpandey24586@gmail.com](mailto:bipinpandey24586@gmail.com)  
+**LinkedIn:** [linkedin.com/in/bipinpandey](https://www.linkedin.com/in/bipinpandey)  
+**GitHub:** [github.com/Beepeen78](https://github.com/Beepeen78)
 
-### Expenses Table
-- `expense_id` (Primary Key)
-- `user_id` (Foreign Key → users.user_id)
-- `category_id` (Foreign Key → categories.category_id)
-- `amount` (Decimal 10,2)
-- `description`
-- `expense_date`
-- `location`
-- `created_at`
+---
 
-## Security Notes
+<div align="center">
 
-⚠️ **Important**: Before deploying to production:
+**Thanks for visiting! ⭐ Feel free to explore my repositories and reach out if you'd like to collaborate!**
 
-1. Change the `SECRET_KEY` in `main.py` to a strong, random secret
-2. Use environment variables for sensitive configuration (database credentials, secret keys)
-3. Enable HTTPS
-4. Implement rate limiting
-5. Add input sanitization
-6. Consider adding admin roles for user management
-7. Implement proper logging and monitoring
+![Profile Views](https://komarev.com/ghpvc/?username=Beepeen78&color=0366d6&style=flat-square)
 
-## Project Structure
+*Last updated: December 2024*
 
-```
-expense_tracker/
-├── main.py           # FastAPI application and endpoints
-├── models.py         # SQLAlchemy database models
-├── schemas.py        # Pydantic schemas for validation
-├── database.py       # Database configuration
-├── requirements.txt  # Python dependencies
-└── README.md         # This file
-```
-
-## Development
-
-To run in development mode with auto-reload:
-
-```bash
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-
-## Testing
-
-You can test the API using:
-- Swagger UI at `/docs`
-- Postman
-- curl commands
-- Any HTTP client
-
-## License
-
-This project is open source and available for personal and educational use.
-
-## Contributing
-
-Feel free to submit issues and enhancement requests!
+</div>
